@@ -14,7 +14,7 @@
   "routes": [
     {
       "src": "/api/inquiry",
-      "dest": "api/inquiry.js"
+      "dest": "/api/inquiry.js"
     },
     {
       "src": "/(.*)",
