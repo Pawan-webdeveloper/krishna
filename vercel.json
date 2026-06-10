@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/inquiry.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "**",
+      "exclude": "api/inquiry.js",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/inquiry",
+      "dest": "api/inquiry.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}
