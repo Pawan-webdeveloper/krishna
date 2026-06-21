@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - Krishna Industries | Engineered Since 1988</title>
+  <meta name="description" content="Learn about Krishna Industries — over 35 years of engineering excellence in submersible pumps, monoblock pumps, and VACTOS control panels from Faridabad, India." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .about-active { color: var(--brand-blue) !important; font-weight: 600 !important; }
+
+    /* ── Legacy Section ── */
+    .about-legacy { padding: calc(var(--navbar-height) + 3.5rem) 0 5rem; background: white; }
+    .about-legacy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .about-legacy-img { position: relative; border-radius: 1.25rem; overflow: hidden; }
+    .about-legacy-img img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 1.25rem; min-height: 360px; }
+    .about-legacy-img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(15,23,42,0.35) 100%);
+      border-radius: 1.25rem; pointer-events: none;
+    }
+    .about-legacy-badge {
+      position: absolute; bottom: 1.25rem; left: 1.25rem; z-index: 2;
+      background: var(--brand-navy); color: white; padding: 0.85rem 1.25rem;
+      border-radius: 0.65rem; box-shadow: 0 12px 32px rgba(15,23,42,0.25);
+    }
+    .about-legacy-badge span { display: block; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--brand-cyan); font-weight: 700; margin-bottom: 0.2rem; }
+    .about-legacy-badge strong { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; line-height: 1; }
+    .about-legacy-copy h1 { font-family: var(--font-display); font-size: clamp(1.8rem, 3.8vw, 2.5rem); font-weight: 700; color: var(--brand-navy); line-height: 1.2; margin-bottom: 1.25rem; letter-spacing: -0.02em; }
+    .about-legacy-copy .hindi { font-family: "Noto Sans Devanagari", sans-serif; color: var(--brand-blue); font-size: 1.15rem; font-weight: 600; margin-bottom: 1.5rem; padding-left: 0.75rem; border-left: 3px solid rgba(37,99,235,0.4); }
+    .about-legacy-copy p { color: var(--text-muted); line-height: 1.75; font-size: 1rem; margin-bottom: 1rem; }
+    .about-stats { display: flex; gap: 2.5rem; margin-top: 2rem; padding-top: 1.75rem; border-top: 1px solid var(--border-subtle); }
+    .about-stat-num { font-family: var(--font-display); font-size: 2.25rem; font-weight: 800; color: var(--brand-blue); line-height: 1; }
+    .about-stat-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brand-navy); margin-top: 0.35rem; }
+
+    /* ── Trust Badges ── */
+    .about-trust { padding: 3.5rem 0; background: var(--background-cool); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
+    .about-trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .about-trust-card { text-align: center; padding: 2rem 1.25rem; border-radius: 1rem; background: white; border: 1px solid var(--border-subtle); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .about-trust-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(15,23,42,0.06); }
+    .about-trust-card .icon-wrap { width: 3rem; height: 3rem; border-radius: 0.75rem; background: rgba(0,81,213,0.08); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+    .about-trust-card .icon-wrap svg { color: var(--brand-blue); width: 1.5rem; height: 1.5rem; }
+    .about-trust-card h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--brand-navy); margin-bottom: 0.35rem; }
+    .about-trust-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+
+    /* ── Download Catalog ── */
+    .about-catalog { padding: 5rem 0; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; position: relative; overflow: hidden; }
+    .about-catalog::before { content: ''; position: absolute; top: -15%; right: -8%; width: 380px; height: 380px; background: radial-gradient(circle, rgba(0,81,213,0.18) 0%, transparent 70%); filter: blur(50px); pointer-events: none; }
+    .about-catalog::after { content: ''; position: absolute; bottom: -15%; left: -8%; width: 380px; height: 380px; background: radial-gradient(circle, rgba(6,182,212,0.15) 0%, transparent 70%); filter: blur(50px); pointer-events: none; }
+    .about-catalog-grid { display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; position: relative; z-index: 1; }
+    .about-catalog-copy h2 { font-family: var(--font-display); font-size: clamp(1.6rem, 3.2vw, 2.15rem); font-weight: 700; margin-bottom: 1rem; }
+    .about-catalog-copy p { color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 1.75rem; font-size: 0.95rem; max-width: 34rem; }
+    .catalog-features { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem 2rem; margin-bottom: 2rem; }
+    .catalog-features li { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.85); list-style: none; }
+    .catalog-features li svg { color: var(--brand-cyan); flex-shrink: 0; width: 1rem; height: 1rem; }
+    .catalog-mockup {
+      width: 220px; height: 290px; flex-shrink: 0;
+      background: linear-gradient(145deg, #1e40af 0%, #0f172a 100%);
+      border-radius: 0.85rem; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 28px 56px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+      display: flex; flex-direction: column; justify-content: space-between;
+      transform: rotate(3deg); transition: transform 0.3s ease;
+    }
+    .catalog-mockup:hover { transform: rotate(0deg) scale(1.03); }
+    .catalog-mockup-top { display: flex; justify-content: space-between; align-items: flex-start; }
+    .catalog-mockup-top img { height: 1.25rem; border-radius: 2px; filter: brightness(0) invert(1); }
+    .catalog-mockup-year { font-size: 0.55rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; background: var(--brand-cyan); color: #0f172a; padding: 0.12rem 0.4rem; border-radius: 9999px; }
+    .catalog-mockup-body span { font-size: 0.55rem; font-weight: 700; text-transform: uppercase; color: var(--brand-cyan); letter-spacing: 0.14em; }
+    .catalog-mockup-body h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; margin: 0.3rem 0; color: white; }
+    .catalog-mockup-body p { font-size: 0.65rem; color: rgba(255,255,255,0.55); line-height: 1.35; }
+    .catalog-mockup-footer { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 0.6rem; display: flex; justify-content: space-between; font-size: 0.55rem; color: rgba(255,255,255,0.4); }
+
+    /* ── Location Section ── */
+    .about-locations { padding: 5rem 0; background: white; }
+    .location-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    .location-card { border-radius: 1rem; overflow: hidden; border: 1px solid var(--border-subtle); background: white; box-shadow: var(--shadow-ambient); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .location-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(15,23,42,0.08); }
+    .location-card iframe { width: 100%; height: 180px; border: none; display: block; }
+    .location-card-body { padding: 1.25rem 1.5rem; }
+    .location-card-body .loc-type { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand-blue); margin-bottom: 0.35rem; }
+    .location-card-body h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--brand-navy); margin-bottom: 0.4rem; }
+    .location-card-body p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; }
+    .location-card-body .loc-contact { margin-top: 0.6rem; font-size: 0.82rem; color: var(--brand-navy); font-weight: 600; display: flex; align-items: center; gap: 0.4rem; }
+    .location-card-body .loc-contact svg { width: 0.9rem; height: 0.9rem; color: var(--brand-blue); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .about-legacy-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .about-trust-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-catalog-grid { grid-template-columns: 1fr; }
+      .catalog-mockup { display: none; }
+      .location-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .about-trust-grid { grid-template-columns: 1fr; }
+      .about-stats { gap: 1.5rem; flex-wrap: wrap; }
+      .catalog-features { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.jpg" alt="Krishna Logo" />
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="about-active">About Us</a>
+        <a href="products.html">Products</a>
+        <a href="products.html#monoblock">Monoblock</a>
+        <a href="products.html#shallow-well">Shallow Well</a>
+        <a href="products.html#control-panels">Control Panels</a>
+        <a href="index.html#service">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button type="button" class="btn-primary open-inquiry-form">Request Quote</button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+          <span id="menuIconOpen"><i data-lucide="menu"></i></span>
+          <span id="menuIconClose" style="display:none"><i data-lucide="x"></i></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="about-active">About Us</a>
+      <a href="products.html">Products</a>
+      <a href="products.html#monoblock">Monoblock</a>
+      <a href="products.html#shallow-well">Shallow Well</a>
+      <a href="products.html#control-panels">Control Panels</a>
+      <a href="index.html#service">Contact</a>
+      <button type="button" class="btn-primary open-inquiry-form">Request Quote</button>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 1. LEGACY / FOUNDER SECTION                -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="about-legacy">
+    <div class="container about-legacy-grid">
+
+      <div class="about-legacy-img animate-on-scroll scale-in">
+        <img src="images/legacy-engineering.jpg" alt="Krishna Industries Founder & Engineering Legacy" />
+        <div class="about-legacy-badge">
+          <span>Established</span>
+          <strong>1988</strong>
+        </div>
+      </div>
+
+      <div class="about-legacy-copy animate-on-scroll from-left">
+        <span class="section-badge">Our Legacy</span>
+        <h1>Building Trust Through Engineering Excellence</h1>
+        <p class="hindi">हर किसान की पसंद — कृष्णा इंडस्ट्रीज</p>
+        <p>
+          Founded in 1988 from a small workshop in Ballabgarh, Faridabad, Krishna Industries has grown into a trusted name in fluid management engineering. What began as a vision to solve India's agricultural water challenges is now a multi-state operation serving thousands of farmers and businesses.
+        </p>
+        <p>
+          Today we manufacture premium Submersible Pump Sets, Self-Priming Monoblock Pumps, Shallow Well Pumps, and our proprietary VACTOS Control Panels — all built with 101% pure copper winding, SKF bearings, and tested under ISO 9001:2015 quality standards.
+        </p>
+
+        <div class="about-stats">
+          <div>
+            <div class="about-stat-num">35+</div>
+            <div class="about-stat-label">Years of Trust</div>
+          </div>
+          <div>
+            <div class="about-stat-num">2,500+</div>
+            <div class="about-stat-label">Installations</div>
+          </div>
+          <div>
+            <div class="about-stat-num">15+</div>
+            <div class="about-stat-label">Markets Served</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- TRUST BADGES                               -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="about-trust">
+    <div class="container">
+      <div class="about-trust-grid">
+        <div class="about-trust-card animate-on-scroll">
+          <div class="icon-wrap"><i data-lucide="shield-check"></i></div>
+          <h3>ISO 9001:2015</h3>
+          <p>Certified quality management</p>
+        </div>
+        <div class="about-trust-card animate-on-scroll delay-1">
+          <div class="icon-wrap"><i data-lucide="zap"></i></div>
+          <h3>101% Copper</h3>
+          <p>Pure copper motor windings</p>
+        </div>
+        <div class="about-trust-card animate-on-scroll delay-2">
+          <div class="icon-wrap"><i data-lucide="gauge"></i></div>
+          <h3>SKF Bearings</h3>
+          <p>Precision engineered components</p>
+        </div>
+        <div class="about-trust-card animate-on-scroll delay-3">
+          <div class="icon-wrap"><i data-lucide="leaf"></i></div>
+          <h3>BEE 5-Star</h3>
+          <p>Energy efficient rated pumps</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 2. DOWNLOAD CATALOG SECTION                -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="about-catalog">
+    <div class="container about-catalog-grid">
+
+      <div class="about-catalog-copy animate-on-scroll from-left">
+        <span class="section-badge" style="background:rgba(255,255,255,0.1); color:white;">Product Catalog</span>
+        <h2>Download Our Complete Product Catalog</h2>
+        <p>Get detailed specifications, performance curves, wiring diagrams, and sizing guides for every pump and control panel we manufacture.</p>
+
+        <ul class="catalog-features">
+          <li><i data-lucide="check"></i> Monoblock pump specs</li>
+          <li><i data-lucide="check"></i> Shallow well pump specs</li>
+          <li><i data-lucide="check"></i> VACTOS control panels</li>
+          <li><i data-lucide="check"></i> Submersible pump sets</li>
+          <li><i data-lucide="check"></i> Performance curve charts</li>
+          <li><i data-lucide="check"></i> Wiring & sizing guides</li>
+        </ul>
+
+        <a href="Vactos-Catalog.pdf" download="Krishna_Industries_Product_Catalog.pdf" class="btn-shop-now" style="text-decoration:none; border-radius:9999px;">
+          Download Catalog (PDF)
+          <i data-lucide="download" style="width:1.1rem; height:1.1rem;"></i>
+        </a>
+      </div>
+
+      <a href="Vactos-Catalog.pdf" download="Krishna_Industries_Product_Catalog.pdf" style="text-decoration:none; display:block;" class="animate-on-scroll scale-in">
+        <div class="catalog-mockup">
+          <div class="catalog-mockup-top">
+            <img src="images/logo.jpg" alt="Logo" />
+            <span class="catalog-mockup-year">2026</span>
+          </div>
+          <div class="catalog-mockup-body">
+            <span>Technical Catalog</span>
+            <h3>KRISHNA PUMPS</h3>
+            <p>Complete Specifications & Performance Data</p>
+          </div>
+          <div class="catalog-mockup-footer">
+            <span>ISO 9001:2015</span>
+            <span>BEE 5-STAR</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 3. LOCATIONS WITH MAPS                     -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="about-locations">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-badge animate-on-scroll">Our Presence</span>
+        <h2 class="animate-on-scroll delay-1">Office & Distribution Network</h2>
+        <p class="animate-on-scroll delay-2">Headquarters in Faridabad with distribution hubs across Northern India.</p>
+      </div>
+
+      <div class="location-grid">
+
+        <!-- HQ - Faridabad -->
+        <div class="location-card animate-on-scroll">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3510.789!2d77.3167!3d28.3460!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cddf4f0000001%3A0x0!2sBallabgarh%2C%20Faridabad!5e0!3m2!1sen!2sin!4v1" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Krishna Industries HQ - Ballabgarh, Faridabad"></iframe>
+          <div class="location-card-body">
+            <div class="loc-type">Global Headquarters</div>
+            <h3>Ballabgarh, Faridabad</h3>
+            <p>Plot No. 230, Rajiv Colony, Sector 56, Samaypur Road, Near Gujjar Chowk, Ballabgarh, Faridabad, Haryana</p>
+            <div class="loc-contact"><i data-lucide="phone"></i> +91 9999214313</div>
+            <div class="loc-contact"><i data-lucide="mail"></i> sales@krishnapumps.com</div>
+          </div>
+        </div>
+
+        <!-- Corporate - Ahmedabad -->
+        <div class="location-card animate-on-scroll delay-1">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117270.0!2d72.5714!3d23.0225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Krishna Industries Corporate Office - Ahmedabad"></iframe>
+          <div class="location-card-body">
+            <div class="loc-type">Corporate Office</div>
+            <h3>Ahmedabad, Gujarat</h3>
+            <p>Corporate coordination office managing Western India distribution and strategic partnerships.</p>
+          </div>
+        </div>
+
+        <!-- Distributor - Ballia, UP -->
+        <div class="location-card animate-on-scroll delay-2">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57568.0!2d84.1487!3d25.7584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3991f5e76d8c4b2d%3A0x5a5c6f92d6d2a37e!2sBallia%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Krishna Industries Distributor - Ballia, UP"></iframe>
+          <div class="location-card-body">
+            <div class="loc-type">Distributor Office</div>
+            <h3>Ballia, Uttar Pradesh</h3>
+            <p>Maldipur Mod, Ballia — serving eastern UP's agricultural irrigation and domestic water needs.</p>
+          </div>
+        </div>
+
+        <!-- Distributor - Buxar, Bihar -->
+        <div class="location-card animate-on-scroll delay-3">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57664.0!2d83.9780!3d25.5764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3991a1c0c1f1ccb7%3A0x85ee39e69eab11ad!2sBuxar%2C%20Bihar!5e0!3m2!1sen!2sin!4v1" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Krishna Industries Distributor - Buxar, Bihar"></iframe>
+          <div class="location-card-body">
+            <div class="loc-type">Distributor Office</div>
+            <h3>Buxar, Bihar</h3>
+            <p>Golambar, Buxar–Patna Road — regional hub for Bihar's growing agricultural pump market.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- FOOTER                                     -->
+  <!-- ═══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="images/logo.jpg" alt="Krishna Logo" />
+          </div>
+          <p>Engineering superior fluid management solutions since 1988. Precision-driven, quality-focused.</p>
+          <div class="footer-social">
+            <button aria-label="Factory"><i data-lucide="factory"></i></button>
+            <button aria-label="Globe"><i data-lucide="globe"></i></button>
+            <button aria-label="Shield"><i data-lucide="shield-check"></i></button>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="products.html">Full Catalog</a></li>
+            <li><a href="products.html#monoblock">Monoblock Pumps</a></li>
+            <li><a href="products.html#shallow-well">Shallow Well Pumps</a></li>
+            <li><a href="products.html#control-panels">Control Panels</a></li>
+            <li><a href="products.html#pump-sets">Submersible Pump Sets</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html#service">Contact</a></li>
+            <li><a href="Vactos-Catalog.pdf" download>Product Catalog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <p class="newsletter-label">Engineering Insights</p>
+          <div class="newsletter-form">
+            <input type="text" placeholder="Email address" />
+            <button type="button">Join</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Krishna Industries Co. Engineered for Precision.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="script.js"></script>
+  <script src="inquiry-form.js"></script>
+</body>
+
+</html>

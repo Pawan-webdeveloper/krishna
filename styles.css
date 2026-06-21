@@ -63,7 +63,8 @@ body::selection {
   align-items: center;
   justify-content: space-between;
   padding: 2rem;
-  background-color: #0b0f19; /* Dark tech background to make glows pop */
+  background-color: #0b0f19;
+  /* Dark tech background to make glows pop */
   color: #ffffff;
   min-height: 80vh;
 }
@@ -80,7 +81,8 @@ body::selection {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 500px; /* Gives the 3D model fixed space */
+  height: 500px;
+  /* Gives the 3D model fixed space */
 }
 
 /* Core 3D Element Styling */
@@ -88,7 +90,8 @@ body::selection {
   width: 100%;
   height: 100%;
   z-index: 2;
-  --poster-color: transparent; /* Removes flash-of-white background while loading */
+  --poster-color: transparent;
+  /* Removes flash-of-white background while loading */
 }
 
 /* Ambient Visual Effects Behind the Pump */
@@ -96,29 +99,29 @@ body::selection {
   position: absolute;
   width: 300px;
   height: 300px;
-  background: radial-gradient(
-    circle,
-    rgba(0, 102, 255, 0.4) 0%,
-    rgba(0, 0, 0, 0) 70%
-  );
+  background: radial-gradient(circle,
+      rgba(0, 102, 255, 0.4) 0%,
+      rgba(0, 0, 0, 0) 70%);
   filter: blur(20px);
   z-index: 1;
 }
 
 .hero-visual-ring {
   position: absolute;
-  width: 350px;
-  height: 350px;
+  width: 380px;
+  height: 380px;
   border: 2px dashed rgba(255, 255, 255, 0.15);
   border-radius: 50%;
   animation: spin 20s linear infinite;
   z-index: 1;
+  inset: 7% 17% 12% 20%;
 }
 
 @keyframes spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -279,25 +282,19 @@ body::selection {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(
-      ellipse 90% 60% at 15% 20%,
+    radial-gradient(ellipse 90% 60% at 15% 20%,
       rgba(255, 255, 255, 0.95) 0%,
-      transparent 55%
-    ),
-    radial-gradient(
-      ellipse 70% 50% at 85% 15%,
+      transparent 55%),
+    radial-gradient(ellipse 70% 50% at 85% 15%,
       rgba(186, 230, 253, 0.45) 0%,
-      transparent 50%
-    ),
-    linear-gradient(
-      175deg,
+      transparent 50%),
+    linear-gradient(175deg,
       #f8fcff 0%,
       #e8f4fc 28%,
       #c5e3f6 52%,
       #6baee0 78%,
       #2d6ba3 90%,
-      #0a3568 100%
-    );
+      #0a3568 100%);
 }
 
 .hero-bg-glow {
@@ -331,17 +328,13 @@ body::selection {
   bottom: 3.25rem;
   height: clamp(100px, 18vw, 180px);
   background:
-    radial-gradient(
-      ellipse 120% 80% at 50% 0%,
+    radial-gradient(ellipse 120% 80% at 50% 0%,
       rgba(255, 255, 255, 0.55) 0%,
-      transparent 65%
-    ),
-    linear-gradient(
-      180deg,
+      transparent 65%),
+    linear-gradient(180deg,
       transparent 0%,
       rgba(59, 130, 246, 0.18) 35%,
-      rgba(10, 53, 104, 0.55) 100%
-    );
+      rgba(10, 53, 104, 0.55) 100%);
   mask-image: linear-gradient(180deg, transparent, black 40%);
 }
 
@@ -380,6 +373,7 @@ body::selection {
     opacity: 0;
     transform: translateY(28px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -391,6 +385,7 @@ body::selection {
     opacity: 0;
     transform: translateY(24px) scale(0.97);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -464,35 +459,29 @@ body::selection {
   top: 12%;
   bottom: 12%;
   width: 2.5rem;
-  background: repeating-linear-gradient(
-    180deg,
-    transparent 0,
-    transparent 2px,
-    #38b4e8 2px,
-    #38b4e8 3.5px,
-    transparent 3.5px,
-    transparent 6px,
-    #4db8eb 6px,
-    #4db8eb 7px,
-    transparent 7px,
-    transparent 10px,
-    #38b4e8 10px,
-    #38b4e8 11.5px
-  );
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    transparent 0%,
-    #000 25%,
-    #000 80%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    90deg,
-    transparent 0%,
-    #000 25%,
-    #000 80%,
-    transparent 100%
-  );
+  background: repeating-linear-gradient(180deg,
+      transparent 0,
+      transparent 2px,
+      #38b4e8 2px,
+      #38b4e8 3.5px,
+      transparent 3.5px,
+      transparent 6px,
+      #4db8eb 6px,
+      #4db8eb 7px,
+      transparent 7px,
+      transparent 10px,
+      #38b4e8 10px,
+      #38b4e8 11.5px);
+  -webkit-mask-image: linear-gradient(90deg,
+      transparent 0%,
+      #000 25%,
+      #000 80%,
+      transparent 100%);
+  mask-image: linear-gradient(90deg,
+      transparent 0%,
+      #000 25%,
+      #000 80%,
+      transparent 100%);
   opacity: 0.92;
 }
 
@@ -740,11 +729,9 @@ body::selection {
   position: absolute;
   inset: 12% 8% 18%;
   border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(96, 165, 250, 0.35) 0%,
-    transparent 68%
-  );
+  background: radial-gradient(circle,
+      rgba(96, 165, 250, 0.35) 0%,
+      transparent 68%);
   filter: blur(24px);
   animation: heroPulse 5s ease-in-out infinite;
 }
@@ -754,20 +741,20 @@ body::selection {
   inset: 8% 5% 12%;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.45);
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.18) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle,
+      rgba(255, 255, 255, 0.18) 0%,
+      transparent 70%);
   pointer-events: none;
 }
 
 @keyframes heroPulse {
+
   0%,
   100% {
     opacity: 0.65;
     transform: scale(1);
   }
+
   50% {
     opacity: 1;
     transform: scale(1.04);
@@ -910,16 +897,19 @@ picture.hero-pumps-picture:hover img {
 }
 
 @keyframes heroFloat {
+
   0%,
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .hero-left,
   .hero-right,
   .hero-pumps,
@@ -935,11 +925,9 @@ picture.hero-pumps-picture:hover img {
   right: 0;
   z-index: 20;
   padding: 0.85rem 1.5rem;
-  background: linear-gradient(
-    180deg,
-    rgba(8, 45, 88, 0.88) 0%,
-    rgba(5, 32, 64, 0.98) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(8, 45, 88, 0.88) 0%,
+      rgba(5, 32, 64, 0.98) 100%);
   border-top: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow: 0 -8px 24px rgba(5, 32, 64, 0.18);
 }
@@ -955,12 +943,10 @@ picture.hero-pumps-picture:hover img {
   width: 28px;
   height: 2px;
   border-radius: 9999px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(96, 165, 250, 0.9),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(96, 165, 250, 0.9),
+      transparent);
 }
 
 .hero-bottom-bar p {
@@ -985,10 +971,12 @@ picture.hero-pumps-picture:hover img {
 }
 
 @keyframes floatY {
+
   0%,
   100% {
     transform: translateX(-50%) translateY(0);
   }
+
   50% {
     transform: translateX(-50%) translateY(10px);
   }
@@ -1014,10 +1002,12 @@ picture.hero-pumps-picture:hover img {
 }
 
 @keyframes bounce {
+
   0%,
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(100%);
   }
@@ -1140,9 +1130,11 @@ picture.hero-pumps-picture:hover img {
 .animate-on-scroll.delay-1 {
   transition-delay: 0.1s;
 }
+
 .animate-on-scroll.delay-2 {
   transition-delay: 0.2s;
 }
+
 .animate-on-scroll.delay-3 {
   transition-delay: 0.3s;
 }
@@ -1236,7 +1228,7 @@ picture.hero-pumps-picture:hover img {
 .years-badge {
   position: absolute;
   bottom: -2.5rem;
-  left: -2.5rem;
+
   background: var(--brand-blue);
   color: white;
   padding: 2rem;
@@ -1551,12 +1543,10 @@ picture.hero-pumps-picture:hover img {
 .app-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(15, 23, 42, 0.9),
-    rgba(15, 23, 42, 0.3),
-    transparent
-  );
+  background: linear-gradient(to top,
+      rgba(15, 23, 42, 0.9),
+      rgba(15, 23, 42, 0.3),
+      transparent);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -1678,7 +1668,7 @@ picture.hero-pumps-picture:hover img {
   letter-spacing: -0.025em;
 }
 
-.contact-info > p {
+.contact-info>p {
   font-size: 1.125rem;
   color: var(--text-muted);
   margin-bottom: 3rem;
@@ -1761,10 +1751,12 @@ picture.hero-pumps-picture:hover img {
 }
 
 @keyframes pulse {
+
   0%,
   100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.7;
   }
@@ -2750,31 +2742,40 @@ picture.hero-pumps-picture:hover img {
   .nav-links {
     display: flex;
   }
+
   .nav-actions .btn-primary {
     display: block;
   }
+
   .menu-toggle {
     display: none;
   }
+
   .products-header {
     flex-direction: row;
     align-items: flex-end;
   }
+
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .cap-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+
   .app-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .cert-grid {
     grid-template-columns: repeat(4, 1fr);
   }
+
   .footer-grid {
     grid-template-columns: repeat(4, 1fr);
   }
+
   .footer-bottom {
     flex-direction: row;
     justify-content: space-between;
@@ -2791,15 +2792,19 @@ picture.hero-pumps-picture:hover img {
   .stats-grid {
     grid-template-columns: repeat(4, 1fr);
   }
-  .stat-card + .stat-card {
+
+  .stat-card+.stat-card {
     border-left: 1px solid var(--border-subtle);
   }
+
   .legacy-grid {
     grid-template-columns: 1fr 1fr;
   }
+
   .products-grid {
     grid-template-columns: repeat(4, 1fr);
   }
+
   .contact-grid {
     grid-template-columns: 5fr 7fr;
   }

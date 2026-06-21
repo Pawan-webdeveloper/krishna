@@ -8,10 +8,8 @@
     '1.5 HP Submersible Control Panel',
     '2.0 HP Submersible Control Panel',
     '3.0 HP Submersible Control Panel',
-    'KR-SUB 6000 Pro Submersible Pump Set',
-    'KR-AGRI 4200 Submersible Pump Set',
-    'KR-IND 8000 X Submersible Pump Set',
-    'KR-SUB 6200 Ultra Submersible Pump Set',
+    'Pump Set K7-KI712',
+    'Pump Set KR-IND 6100',
     'General Inquiry',
   ];
 
