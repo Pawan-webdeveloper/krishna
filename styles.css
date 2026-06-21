@@ -2274,6 +2274,11 @@ picture.hero-pumps-picture:hover img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  transition: transform 0.7s ease;
+}
+
+.catalog-card:hover .catalog-card-image img {
+  transform: scale(1.1);
 }
 
 .catalog-card-body {
@@ -2421,12 +2426,18 @@ picture.hero-pumps-picture:hover img {
 }
 
 .control-panel-img-placeholder img {
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  height: auto;
+  max-height: 90%;
   object-fit: contain;
-  padding: 0.75rem;
+  padding: 0;
   margin: 0 auto;
   display: block;
+  transition: transform 0.7s ease;
+}
+
+.control-panel-card:hover .control-panel-img-placeholder img {
+  transform: scale(1.1);
 }
 
 .control-panel-img-placeholder svg {
