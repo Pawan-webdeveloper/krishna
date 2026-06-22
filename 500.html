@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>500 - Server Error | Krishna Industries</title>
+  <meta name="description" content="Something went wrong on our end. Our engineers are working to fix this. Return to Krishna Industries homepage." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Error Page Styles ── */
+    .error-page {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      padding: calc(var(--navbar-height) + 2rem) 1.5rem 4rem;
+    }
+
+    .error-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% 80%, rgba(239, 68, 68, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 20%, rgba(220, 38, 38, 0.05) 0%, transparent 55%),
+        linear-gradient(175deg, #fef2f2 0%, #fef2f2 20%, #fee2e2 50%, #f7f9fb 100%);
+    }
+
+    .error-bg-glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.3;
+      pointer-events: none;
+      animation: errorGlowDrift 8s ease-in-out infinite alternate;
+    }
+
+    .error-bg-glow--1 {
+      width: 500px;
+      height: 500px;
+      top: 10%;
+      left: -10%;
+      background: rgba(239, 68, 68, 0.18);
+    }
+
+    .error-bg-glow--2 {
+      width: 400px;
+      height: 400px;
+      bottom: 5%;
+      right: -8%;
+      background: rgba(185, 28, 28, 0.12);
+      animation-delay: -4s;
+    }
+
+    @keyframes errorGlowDrift {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(20px, -15px) scale(1.08); }
+    }
+
+    .error-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 42rem;
+      animation: errorFadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    @keyframes errorFadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .error-code-wrap {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+
+    .error-code {
+      font-family: var(--font-display);
+      font-size: clamp(7rem, 20vw, 12rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, #991b1b 0%, #dc2626 40%, #f87171 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      user-select: none;
+    }
+
+    .error-code::after {
+      content: '';
+      position: absolute;
+      bottom: 0.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 12px;
+      background: radial-gradient(ellipse, rgba(239, 68, 68, 0.12) 0%, transparent 70%);
+      filter: blur(6px);
+    }
+
+    /* Static/glitch line effect */
+    .error-glitch-line {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, rgba(239, 68, 68, 0.3) 20%, rgba(239, 68, 68, 0.1) 50%, rgba(239, 68, 68, 0.3) 80%, transparent 100%);
+      animation: glitchScan 4s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes glitchScan {
+      0% { top: 10%; opacity: 0; }
+      5% { opacity: 0.7; }
+      30% { top: 85%; opacity: 0; }
+      100% { top: 85%; opacity: 0; }
+    }
+
+    /* Warning pulse */
+    .error-warning-pulse {
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 20px;
+    }
+
+    .error-warning-pulse span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 2px solid rgba(239, 68, 68, 0.2);
+      animation: warningPulse 2.8s ease-out infinite;
+    }
+
+    .error-warning-pulse span:nth-child(1) { width: 40px; height: 10px; animation-delay: 0s; }
+    .error-warning-pulse span:nth-child(2) { width: 80px; height: 14px; animation-delay: 0.6s; }
+    .error-warning-pulse span:nth-child(3) { width: 120px; height: 16px; animation-delay: 1.2s; }
+
+    @keyframes warningPulse {
+      0% { opacity: 0.6; transform: translate(-50%, -50%) scale(0.85); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(1.4); }
+    }
+
+    .error-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(239, 68, 68, 0.15);
+      color: #991b1b;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+      margin-bottom: 1.25rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .error-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #ef4444;
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+      animation: badgePulse 2s ease-in-out infinite;
+    }
+
+    @keyframes badgePulse {
+      0%, 100% { box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2); }
+      50% { box-shadow: 0 0 0 6px rgba(239, 68, 68, 0.1); }
+    }
+
+    .error-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+      font-weight: 700;
+      color: var(--brand-navy);
+      line-height: 1.2;
+      margin-bottom: 0.85rem;
+      letter-spacing: -0.02em;
+    }
+
+    .error-description {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 32rem;
+      margin: 0 auto 2rem;
+    }
+
+    .error-cta-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .error-cta-row .btn-shop-now { text-decoration: none; }
+    .error-cta-row .btn-hero-outline { cursor: pointer; text-decoration: none; }
+
+    /* Status card showing engineers are on it */
+    .error-status-card {
+      margin-top: 2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1.5rem;
+      border-radius: 0.85rem;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+      backdrop-filter: blur(8px);
+    }
+
+    .status-indicator {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      animation: statusBlink 2s ease-in-out infinite;
+    }
+
+    @keyframes statusBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .status-text {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--brand-navy);
+    }
+
+    .status-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-left: 0.25rem;
+    }
+
+    .error-helpful-links {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .error-helpful-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.75rem;
+      background: rgba(255, 255, 255, 0.65);
+      border: 1px solid var(--border-subtle);
+      color: var(--brand-navy);
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .error-helpful-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      border-color: rgba(239, 68, 68, 0.2);
+      color: #991b1b;
+    }
+
+    .error-helpful-link svg {
+      width: 1rem;
+      height: 1rem;
+      color: #dc2626;
+    }
+
+    /* Floating particles */
+    .error-particles {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .error-particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(239, 68, 68, 0.1);
+      animation: particleFloat 12s ease-in-out infinite;
+    }
+
+    .error-particle:nth-child(1) { left: 8%; top: 22%; animation-delay: 0s; width: 8px; height: 8px; }
+    .error-particle:nth-child(2) { left: 88%; top: 40%; animation-delay: -3s; }
+    .error-particle:nth-child(3) { left: 22%; top: 68%; animation-delay: -6s; width: 4px; height: 4px; }
+    .error-particle:nth-child(4) { left: 75%; top: 78%; animation-delay: -9s; width: 10px; height: 10px; background: rgba(185, 28, 28, 0.08); }
+    .error-particle:nth-child(5) { left: 45%; top: 10%; animation-delay: -2s; width: 5px; height: 5px; }
+
+    @keyframes particleFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.4; }
+      25% { transform: translateY(-20px) rotate(90deg); opacity: 0.7; }
+      50% { transform: translateY(-8px) rotate(180deg); opacity: 0.3; }
+      75% { transform: translateY(-25px) rotate(270deg); opacity: 0.6; }
+    }
+
+    .error-icon-float {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .error-icon-float .icon-circle {
+      width: 4.5rem;
+      height: 4.5rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.03) 100%);
+      border: 1px solid rgba(239, 68, 68, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: iconShake 4s ease-in-out infinite;
+    }
+
+    .error-icon-float .icon-circle svg {
+      width: 1.75rem;
+      height: 1.75rem;
+      color: #dc2626;
+    }
+
+    @keyframes iconShake {
+      0%, 90%, 100% { transform: translateX(0); }
+      92% { transform: translateX(-3px); }
+      94% { transform: translateX(3px); }
+      96% { transform: translateX(-2px); }
+      98% { transform: translateX(2px); }
+    }
+
+    @media (max-width: 640px) {
+      .error-helpful-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .error-helpful-link {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+
+      .error-cta-row {
+        flex-direction: column;
+      }
+
+      .error-cta-row .btn-shop-now,
+      .error-cta-row .btn-hero-outline {
+        width: 100%;
+        max-width: 280px;
+      }
+
+      .error-status-card {
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D2C9LKM61W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-D2C9LKM61W');
+  </script>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.jpg" alt="Krishna Logo" />
+      </a>
+      <nav class="nav-links">
+        <a href="products.html">Products</a>
+        <a href="about.html">About Us</a>
+        <a href="products.html#monoblock">Monoblock</a>
+        <a href="products.html#shallow-well">Shallow Well</a>
+        <a href="products.html#control-panels">Control Panels</a>
+        <a href="index.html#service">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button type="button" class="btn-primary open-inquiry-form">Request Quote</button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+          <span id="menuIconOpen"><i data-lucide="menu"></i></span>
+          <span id="menuIconClose" style="display: none"><i data-lucide="x"></i></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="products.html">Products</a>
+      <a href="about.html">About Us</a>
+      <a href="products.html#monoblock">Monoblock</a>
+      <a href="products.html#shallow-well">Shallow Well</a>
+      <a href="products.html#control-panels">Control Panels</a>
+      <a href="index.html#service">Contact</a>
+      <button type="button" class="btn-primary open-inquiry-form">Request Quote</button>
+    </div>
+  </header>
+
+  <!-- Error Page Content -->
+  <main class="error-page" id="error-500">
+    <div class="error-bg" aria-hidden="true">
+      <div class="error-bg-glow error-bg-glow--1"></div>
+      <div class="error-bg-glow error-bg-glow--2"></div>
+    </div>
+
+    <div class="error-particles" aria-hidden="true">
+      <div class="error-particle"></div>
+      <div class="error-particle"></div>
+      <div class="error-particle"></div>
+      <div class="error-particle"></div>
+      <div class="error-particle"></div>
+    </div>
+
+    <div class="error-content">
+      <div class="error-icon-float">
+        <div class="icon-circle">
+          <i data-lucide="server-crash"></i>
+        </div>
+      </div>
+
+      <span class="error-badge">Internal Server Error</span>
+
+      <div class="error-code-wrap">
+        <div class="error-code">500</div>
+        <div class="error-glitch-line" aria-hidden="true"></div>
+        <div class="error-warning-pulse" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <h1 class="error-title">Our Pumps Are Fine, But the Server Isn't</h1>
+      <p class="error-description">
+        Something went wrong on our end. Our engineering team has been automatically notified and is working to restore normal operations. Please try again in a few moments.
+      </p>
+
+      <div class="error-cta-row">
+        <a href="index.html" class="btn-shop-now">
+          Back to Home
+          <i data-lucide="arrow-right"></i>
+        </a>
+        <button type="button" class="btn-hero-outline" onclick="location.reload()">
+          Try Again
+        </button>
+      </div>
+
+      <div class="error-status-card">
+        <div class="status-indicator">
+          <div class="status-dot"></div>
+          <span class="status-text">Engineers Notified</span>
+        </div>
+        <span class="status-sub">Incident auto-reported • Monitoring active</span>
+      </div>
+
+      <div class="error-helpful-links">
+        <a href="products.html" class="error-helpful-link">
+          <i data-lucide="package"></i>
+          Product Catalog
+        </a>
+        <a href="about.html" class="error-helpful-link">
+          <i data-lucide="building-2"></i>
+          About Us
+        </a>
+        <a href="index.html#service" class="error-helpful-link">
+          <i data-lucide="headset"></i>
+          Contact Support
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="images/logo.jpg" alt="Krishna Logo" />
+          </div>
+          <p>Engineering superior fluid management solutions since 1988. Precision-driven, quality-focused.</p>
+          <div class="footer-social">
+            <button aria-label="Factory"><i data-lucide="factory"></i></button>
+            <button aria-label="Globe"><i data-lucide="globe"></i></button>
+            <button aria-label="Shield"><i data-lucide="shield-check"></i></button>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="products.html">Full Catalog</a></li>
+            <li><a href="products.html#monoblock">Monoblock Pumps</a></li>
+            <li><a href="products.html#shallow-well">Shallow Well Pumps</a></li>
+            <li><a href="products.html#control-panels">Control Panels</a></li>
+            <li><a href="products.html#pump-sets">Submersible Pump Sets</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Technical Drawings</a></li>
+            <li><a href="#">BOM Specifications</a></li>
+            <li><a href="#">Certifications</a></li>
+            <li><a href="#">White Papers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <p class="newsletter-label">Engineering Insights</p>
+          <div class="newsletter-form">
+            <input type="text" placeholder="Email address" />
+            <button type="button">Join</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Krishna Industries Co. Engineered for Precision.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="script.js"></script>
+  <script src="inquiry-form.js"></script>
+</body>
+
+</html>
