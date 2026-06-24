@@ -1,6 +1,6 @@
 const { Resend } = require('resend');
 
-const TO_EMAIL = process.env.INQUIRY_TO_EMAIL || 'pawan572893@gmail.com';
+const TO_EMAIL = process.env.INQUIRY_TO_EMAIL || 'support@krishnaindustriesvactos.com';
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
 
 function isValidEmail(value) {
